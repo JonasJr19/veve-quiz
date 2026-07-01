@@ -7,6 +7,8 @@
 <title>Feliz Aniversário, Vevê 🍓</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="errou.jpg">
+<link rel="preload" as="image" href="acertou.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -108,6 +110,10 @@
   .feedback{ min-height:1.3em; margin:16px 2px 0; font-weight:700; font-size:.95rem; color:var(--rose); }
   .feedback-correct{ color:var(--gold-soft); }
 
+  .feedback-photo-wrap{ display:none; margin:16px 0 4px; border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--card-border); box-shadow:0 14px 30px -14px rgba(0,0,0,.6); }
+  .feedback-photo-wrap.show{ display:block; animation:pop .5s cubic-bezier(.2,1.4,.4,1) both; }
+  .feedback-photo{ display:block; width:100%; height:230px; object-fit:cover; object-position:center 20%; }
+
   .gift{ font-size:3.2rem; margin-bottom:6px; display:inline-block; animation:pop .7s cubic-bezier(.2,1.4,.4,1) both; }
   @keyframes pop{ from{opacity:0; transform:scale(.3) rotate(-12deg);} to{opacity:1; transform:none;} }
   .gift-box{ background:rgba(244,208,138,.07); border:1.5px dashed rgba(244,208,138,.4); border-radius:var(--radius-md); padding:22px 18px; margin:20px 0; }
@@ -159,6 +165,9 @@
     <div class="card quiz-card">
       <p id="question-text" class="question-text"></p>
       <div id="options" class="options"></div>
+      <div id="feedback-photo-wrap" class="feedback-photo-wrap">
+        <img id="feedback-photo" class="feedback-photo" src="" alt="">
+      </div>
       <p id="feedback" class="feedback"></p>
       <button id="continue-btn" type="button" class="btn-primary" style="display:none;">Continuar →</button>
     </div>
@@ -272,6 +281,10 @@
     fb.className = 'feedback';
     $('#continue-btn').style.display = 'none';
 
+    var photoWrap = $('#feedback-photo-wrap');
+    photoWrap.classList.remove('show');
+    $('#feedback-photo').src = '';
+
     showScreen('screen-quiz');
   }
 
@@ -287,15 +300,22 @@
     });
 
     var fb = $('#feedback');
+    var photoWrap = $('#feedback-photo-wrap');
+    var photoImg = $('#feedback-photo');
     if(i === q.correct){
       state.correct++;
       fb.textContent = pick(CORRECT_MESSAGES);
       fb.className = 'feedback feedback-correct';
+      photoImg.src = 'acertou.jpg';
+      photoImg.alt = 'Vevê comemorando';
       pulseScore();
     } else {
       fb.textContent = pick(WRONG_MESSAGES).replace('{answer}', q.options[q.correct]);
       fb.className = 'feedback';
+      photoImg.src = 'errou.jpg';
+      photoImg.alt = 'Vevê tensa torcendo';
     }
+    photoWrap.classList.add('show');
     $('#score-display').textContent = '🍓 ' + (state.correct*10) + ' pontos';
     $('#continue-btn').style.display = 'block';
   }
