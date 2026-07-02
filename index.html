@@ -149,6 +149,9 @@
         <span class="chip">☕ Gilmore Girls</span>
         <span class="chip">⚡ Harry Potter</span>
         <span class="chip">🌽 Smallville</span>
+        <span class="chip">🛋️ Friends</span>
+        <span class="chip">☂️ HIMYM</span>
+        <span class="chip">🩺 Dr. House</span>
       </div>
       <p class="hint">Cada acerto soma pontos. No meio da jornada já tem presente liberado — e no final, a surpresa grande. Bora?</p>
       <button id="start-btn" type="button" class="btn-primary">Começar 🍓</button>
@@ -183,7 +186,7 @@
         <p class="gift-place">no Vila Rusticana</p>
       </div>
       <p class="gift-note">Metade do caminho andado — e olha só o que já é seu. Ainda falta uma fase pro presente final. 😉</p>
-      <button id="gift1-continue" type="button" class="btn-primary">Ir pra fase final: Smallville 🌽</button>
+      <button id="gift1-continue" type="button" class="btn-primary">Ir pro ato final 🛋️☂️🩺</button>
     </div>
   </section>
 
@@ -211,23 +214,41 @@
 <script>
 (function(){
   var QUIZ_DATA = [
-    { category:"Gilmore Girls", icon:"☕", question:"Qual é o nome da cidade fictícia e cheia de charme onde vivem Lorelai e Rory?", options:["Stars Hollow","Hartford","Chilton","Woodbury"], correct:0 },
-    { category:"Gilmore Girls", icon:"☕", question:"Qual é o point favorito da dupla — o point do café e da fofoca da cidade?", options:["Central Perk","Luke's Diner","The Independence Inn","Doose's Market"], correct:1 },
-    { category:"Gilmore Girls", icon:"☕", question:"Em qual escola preparatória badalada Rory estuda antes da faculdade?", options:["Hogwarts","Chilton","Excelsior","St. Mary's"], correct:1 },
-    { category:"Gilmore Girls", icon:"☕", question:"Quem é a melhor amiga e sócia de Lorelai — a rainha da cozinha da pousada?", options:["Paris Geller","Emily Gilmore","Sookie St. James","Michel Gerard"], correct:2 },
-    { category:"Gilmore Girls", icon:"☕", question:"Qual faculdade Rory acaba escolhendo, seguindo os passos do avô Richard?", options:["Princeton","Columbia","Yale","Dartmouth"], correct:2 },
+    { category:"Gilmore Girls", icon:"☕", question:"Qual é o nome completo de Rory, batizada com o mesmo nome da própria mãe?", options:["Rory Grace Gilmore","Lorelai Leigh Gilmore","Leigh Lorelai Hayden","Lorelai Rory Danes"], correct:1 },
+    { category:"Gilmore Girls", icon:"☕", question:"Antes de virar o Luke's, o espaço pertencia ao pai do Luke e funcionava como o quê?", options:["Padaria da família","Loja de ferragens","Farmácia","Oficina mecânica"], correct:1 },
+    { category:"Gilmore Girls", icon:"☕", question:"Qual é o nome do marido de Sookie, que fornece os produtos agrícolas da pousada?", options:["Jackson Belleville","Kirk Gleason","Jess Mariano","Dean Forester"], correct:0 },
+    { category:"Gilmore Girls", icon:"☕", question:"Como se chama a publicação estudantil de Chilton que Paris Geller comanda com mão de ferro?", options:["The Chilton Voice","The Beacon","The Franklin","The Quill"], correct:2 },
+    { category:"Gilmore Girls", icon:"☕", question:"Qual evento tradicional de Stars Hollow aparece no episódio em que Lorelai e Rory dançam a noite inteira sem parar?", options:["O Festival da Colheita","A Maratona de Dança","A Feira Medieval","O Baile de Inverno"], correct:1 },
 
-    { category:"Harry Potter", icon:"⚡", question:"O Chapéu Seletor coloca Harry em qual casa de Hogwarts?", options:["Sonserina","Lufa-Lufa","Corvinal","Grifinória"], correct:3 },
-    { category:"Harry Potter", icon:"⚡", question:"Qual professor de Defesa Contra as Artes das Trevas escondia ser um lobisomem?", options:["Gilderoy Lockhart","Remo Lupin","Alastor Moody","Severo Snape"], correct:1 },
-    { category:"Harry Potter", icon:"⚡", question:"Quem administra o banco Gringotes, no Beco Diagonal?", options:["Elfos domésticos","Centauros","Duendes","Trouxas"], correct:2 },
-    { category:"Harry Potter", icon:"⚡", question:"O núcleo da varinha de Harry Potter é feito de quê?", options:["Pena de fênix","Fibra de dragão","Pelo de unicórnio","Cabelo de veela"], correct:0 },
-    { category:"Harry Potter", icon:"⚡", question:"Quem foi diretor de Hogwarts durante quase toda a saga, até o 6º livro?", options:["Severo Snape","Alvo Dumbledore","Minerva McGonagall","Horácio Slughorn"], correct:1 },
+    { category:"Harry Potter", icon:"⚡", question:"Quais são as três Relíquias da Morte?", options:["Capa da Invisibilidade, Varinha das Varinhas e Pedra da Ressurreição","Capa da Invisibilidade, Espelho de Ojesed e Pedra Filosofal","Varinha das Varinhas, Bola de Cristal e Capa da Invisibilidade","Pedra da Ressurreição, Espada de Grifinória e Capa da Invisibilidade"], correct:0 },
+    { category:"Harry Potter", icon:"⚡", question:"Como se chama o mapa mágico que mostra todos os corredores de Hogwarts e a localização de cada pessoa no castelo?", options:["Mapa do Reino","Mapa do Maroto","Atlas de Hogwarts","Bússola dos Bruxos"], correct:1 },
+    { category:"Harry Potter", icon:"⚡", question:"Os criadores do Mapa do Maroto assinam como Aluado, Rabicho, Almofadinhas e Pontas. Qual apelido pertence a Sirius Black?", options:["Aluado","Rabicho","Almofadinhas","Pontas"], correct:2 },
+    { category:"Harry Potter", icon:"⚡", question:"Qual poção faz a pessoa assumir temporariamente a aparência física de outra pessoa?", options:["Veritaserum","Felix Felicis","Poção Polissuco","Poção do Morto-Vivo"], correct:2 },
+    { category:"Harry Potter", icon:"⚡", question:"Qual criatura mágica Hagrid mantinha escondida em sua cabana, batizada de Norberto?", options:["Um hipogrifo","Um dragão","Uma acromântula","Um basilisco"], correct:1 },
 
-    { category:"Smallville", icon:"🌽", question:"Qual é o sobrenome da família que encontra e cria o bebê Kal-El no Kansas?", options:["Lane","Luthor","Kent","Sullivan"], correct:2 },
-    { category:"Smallville", icon:"🌽", question:"Qual mineral vindo do meteoro tira os poderes de Clark?", options:["Vibranium","Kryptonita","Adamantium","Uru"], correct:1 },
-    { category:"Smallville", icon:"🌽", question:"Quem é o melhor amigo de infância de Clark que, ao longo da série, vira seu maior rival?", options:["Pete Ross","Oliver Queen","Lex Luthor","Bruce Wayne"], correct:2 },
-    { category:"Smallville", icon:"🌽", question:"Qual é o verdadeiro nome kryptoniano de Clark Kent?", options:["Jor-El","Zod","Kal-El","Dru-Zod"], correct:2 },
-    { category:"Smallville", icon:"🌽", question:"Em qual metrópole Clark passa a trabalhar como jornalista no Planeta Diário?", options:["Gotham City","Central City","Star City","Metropolis"], correct:3 }
+    { category:"Smallville", icon:"🌽", question:"Qual é o nome da tia que cria Lana Lang em Smallville?", options:["Martha Kent","Nell Potter","Chloe Sullivan","Lois Lane"], correct:1 },
+    { category:"Smallville", icon:"🌽", question:"Qual é o nome do pai implacável de Lex Luthor, dono da LuthorCorp?", options:["Lionel Luthor","Morgan Edge","Perry White","Jonathan Kent"], correct:0 },
+    { category:"Smallville", icon:"🌽", question:"Como se chama a seção do jornal escolar (o Torch) que Chloe Sullivan mantém com recortes de eventos estranhos da cidade?", options:["O Arquivo X","O Muro do Bizarro","A Parede Kryptoniana","O Mural Secreto"], correct:1 },
+    { category:"Smallville", icon:"🌽", question:"Qual super-herói aparece em Smallville sob a identidade secreta de Oliver Queen?", options:["Asa Noturna","Flash","Arqueiro Verde","Aquaman"], correct:2 },
+    { category:"Smallville", icon:"🌽", question:"Quem interpreta Lex Luthor em Smallville?", options:["Tom Welling","Michael Rosenbaum","Justin Hartley","John Glover"], correct:1 },
+
+    { category:"Friends", icon:"🛋️", question:"Qual é o nome do macaco de estimação que Ross tem nas primeiras temporadas?", options:["Fifi","Marcel","Gunther","Chandler Jr."], correct:1 },
+    { category:"Friends", icon:"🛋️", question:"Rachel foge do próprio casamento no primeiro episódio. Qual era a profissão do noivo deixado no altar?", options:["Advogado","Cirurgião","Ortodontista","Contador"], correct:2 },
+    { category:"Friends", icon:"🛋️", question:"Como se chama a irmã gêmea da Phoebe, também garçonete, que aparece na série?", options:["Denise","Ursula","Frances","Alice"], correct:1 },
+    { category:"Friends", icon:"🛋️", question:"Qual é o título da música mais famosa (e mais estranha) que Phoebe canta com sua guitarra?", options:["Grandma's Cookies","Sticky Shoes","Smelly Cat","Dirty Dan"], correct:2 },
+    { category:"Friends", icon:"🛋️", question:"Qual é a piada recorrente sobre o emprego do Chandler ao longo da série?", options:["Ele troca de emprego toda temporada","Ninguém sabe exatamente o que ele faz","Ele é secretamente dono do Central Perk","Ele finge ter um emprego"], correct:1 },
+
+    { category:"How I Met Your Mother", icon:"☂️", question:"Em qual bar o grupo de amigos se encontra o tempo todo, virando praticamente o point deles?", options:["Central Perk","Cheers","MacLaren's Pub","Paddy's Pub"], correct:2 },
+    { category:"How I Met Your Mother", icon:"☂️", question:"Qual é a cor do guarda-chuva que se torna uma pista visual recorrente sobre \"a Mãe\" ao longo da série?", options:["Vermelho","Amarelo","Azul","Verde"], correct:1 },
+    { category:"How I Met Your Mother", icon:"☂️", question:"Como se chama o livro literal de estratégias de conquista que Barney mantém como seu manual pessoal?", options:["The Bro Code","The Playbook","The Manual","The Legend"], correct:1 },
+    { category:"How I Met Your Mother", icon:"☂️", question:"Qual é o nome do filho de Marshall e Lily, batizado em homenagem ao pai do Marshall?", options:["Ted Jr.","Barney","Marvin","Mosby"], correct:2 },
+    { category:"How I Met Your Mother", icon:"☂️", question:"Em qual instituição financeira o Barney trabalha, revelada aos poucos apesar do mistério em torno do próprio emprego?", options:["Altrucell Corporation","Manhattan Trust","Goliath National Bank","MetLife"], correct:2 },
+
+    { category:"Dr. House", icon:"🩺", question:"Qual é o primeiro nome do Dr. House?", options:["Robert","Gregory","James","Eric"], correct:1 },
+    { category:"Dr. House", icon:"🩺", question:"Qual é o nome do hospital fictício onde a série se passa?", options:["Seattle Grace","St. Mary's","Princeton-Plainsboro","Johns Hopkins General"], correct:2 },
+    { category:"Dr. House", icon:"🩺", question:"A qual remédio o Dr. House é viciado ao longo de quase toda a série?", options:["Morfina","Vicodina","Oxicodona","Fentanil"], correct:1 },
+    { category:"Dr. House", icon:"🩺", question:"Qual famoso detetive literário inspira o personagem do Dr. House (reparem nas iniciais parecidas)?", options:["Hercule Poirot","Sherlock Holmes","Sam Spade","Philip Marlowe"], correct:1 },
+    { category:"Dr. House", icon:"🩺", question:"Qual frase repetida por House resume sua desconfiança constante com os pacientes?", options:["\"A dor é só um número\"","\"Confie, mas verifique\"","\"Todo mundo mente\"","\"O paciente sempre sabe menos\""], correct:2 }
   ];
 
   var CORRECT_MESSAGES = [
@@ -329,7 +350,7 @@
 
   function nextStep(){
     state.index++;
-    if(state.index === 10){
+    if(state.index === 15){
       showGift1();
     } else if(state.index === QUIZ_DATA.length){
       showFinal();
